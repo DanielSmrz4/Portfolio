@@ -19,23 +19,35 @@ img {
 }
 
 body {
+    font-family: "Open Sans", sans-serif;
     min-height: 100vh;
-    line-height: 1.3;
     font-size: 1rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
     background-color: var(--bg-clr);
     color: #e5e5e5;
 }
 
+h1 {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    padding-inline: 1.5rem;
+    font-size: clamp(1.8rem, .5rem + 3vw, 2rem);
+}
+
+h2 {
+    font-family: "Poppins", sans-serif;
+    margin-block-end: .75rem;
+    font-weight: 500;
+}
 
 
-/*** MAIN PAGE ***/
-
+/*===========
+   MAIN PAGE
+  ===========*/
 
 /** Contact **/
-
 .contact {
-    padding: 1rem;
+    margin-block: 2rem 2rem;
     font-size: .8rem;
     width: 100%;
 
@@ -59,13 +71,12 @@ body {
 
 
 /** Layout, profile picture **/
-
 main {
-    min-height: 94vh;
+    min-height: 90svh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;  
     gap: 2rem;
 }
 
@@ -88,21 +99,11 @@ main {
     animation: border-motion infinite linear 4s;
 }
 
-/** Main heading **/
-
-h1 {
-    text-align: center;
-    padding-inline: 1.5rem;
-    font-size: clamp(1.8rem, .5rem + 3vw, 2rem);
-    font-weight: 400;
-}
-
 #name {
     color: var(--blue-clr);
 }
 
 /** Sections - About, Projects, Tech stack **/
-
 .sections {
     padding-inline: 1.5rem;
     max-width: 65em;
@@ -112,31 +113,19 @@ h1 {
     grid-template-areas: "a b" "a c";
 }
 
-.about {
-    grid-area: a;
-}
-
-.projects {
-    grid-area: b;
-}
-
-.tech-stack {
-    grid-area: c;
-
-}
-
 .one-section {
     border: 2.5px solid var(--blue-avatar-clr);
     padding: 1rem;
     border-radius: 1rem;   
     background-color: #181818;
-    box-shadow: 0 0 1rem -.3rem #000;   
+    box-shadow: 0 0 1rem -.3rem #000; 
 }
 
-h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-block-end: .5rem;
+/* About me */
+.about {
+    grid-area: a;
+    opacity: 0;
+    animation: fade-in-bottom .5s ease-in forwards;
 }
 
 .about-exp {
@@ -146,10 +135,13 @@ h2 {
 }
 
 .subheader-experience {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
     background: linear-gradient(to top right, rgb(205, 82, 0), rgb(255, 201, 53));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    margin-block-end: .75rem;
 }
 
 .about-exp > h4 {
@@ -159,12 +151,14 @@ h2 {
 
 /* Projects */
 .projects {
-    position: relative;
+    position: relative;   
     border: none;
-
+    grid-area: b;
+    animation: fade-in-bottom .6s ease-in;
+    
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
 .projects::before {
@@ -177,6 +171,9 @@ h2 {
     border-radius: 1.15rem;
     background: linear-gradient(to top right, rgb(205, 82, 0), rgb(255, 201, 53));
     z-index: -1;
+    opacity: 0;
+    animation: fade-in-opacity 1s ease forwards;
+    animation-delay: .6s;
 }
 
 .next-page {
@@ -194,6 +191,13 @@ h2 {
 }
 
 /* Tech stack */
+.tech-stack {
+    grid-area: c;
+    opacity: 0;
+    animation: fade-in-bottom .3s ease-in forwards;
+    animation-delay: .4s;
+}
+
 .tech-stack-logos {
     display: flex;
     gap: 1rem;
@@ -207,25 +211,26 @@ h2 {
 }
 
 
-
-/*** PROJECTS PAGE ***/
+/*===============
+   PROCEJTS PAGE
+  ===============*/
 
 /** Title **/
-
 #projects-heading {
-    margin-block: 4rem 2rem;
+    margin-block: 2rem 2rem;
     border-left: solid 3px var(--blue-clr);
+    width: fit-content;
+    margin-inline: auto;
 }
 
 /** Projects **/
-
 .all-projects {
     padding-inline: 1.5rem;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .one-project {
@@ -233,17 +238,14 @@ h2 {
     height: fit-content;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 0 1rem -.3rem #000;
+    box-shadow: 0 0 1rem -.5rem #000;
     background-color: #181818;
-    transition: all 300ms ease-out;
+    transition: all 250ms ease-out;
+    opacity: 0;
+    animation: fade-scale 1s ease forwards;
 
     display: flex;
     flex-direction: column;
-}
-
-.one-project:hover {
-    scale: 1.01;
-    box-shadow: 0 0 1.5rem -.3rem #000;
 }
 
 .one-project-description {
@@ -276,14 +278,15 @@ h2 {
 .project-link {
     color: var(--blue-clr);
     text-decoration: none;
+    transition: all 50ms linear;
 }
 
 .project-link:hover {
-    color: var(--blue-avatar-clr);
+    color: var(--orange-clr);
 }
 
 .project-link:active {
-    color: var(--blue-avatar-clr);
+    color: var(--orange-clr);
 }
 
 .image-wraper img {
@@ -292,7 +295,6 @@ h2 {
 }
 
 /** previous page button **/
-
 .previous-page {
     margin-block-end: 2rem;
 }
@@ -306,7 +308,30 @@ h2 {
 }
 
 
-/** Media queries **/
+
+/*============
+   ANIMATIONS
+  ============*/
+
+@keyframes fade-in-bottom {
+    from { opacity: 0; transform: translateY(75px); }
+    to { opacity: 1; } 
+}
+
+@keyframes fade-in-opacity {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-scale {
+    from { opacity: .25; scale: .75; }
+    to { opacity: 1; scale: 1; }
+}
+
+
+/*=============
+   MEDIA QUERY
+  =============*/
 
 /* Mobile devices */
 @media (width <= 738px) {
