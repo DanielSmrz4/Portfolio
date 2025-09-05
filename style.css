@@ -248,6 +248,10 @@ main {
     flex-direction: column;
 }
 
+.one-project:hover {
+    transform: translateY(-5px);
+}
+
 .one-project-description {
     height: 50%;
     padding: 0 1rem 1rem 1rem;
@@ -305,54 +309,4 @@ main {
 
 .previous-page img:active {
     transform: translate(1px, 2px);
-}
-
-
-
-/*============
-   ANIMATIONS
-  ============*/
-
-@keyframes fade-in-bottom {
-    from { opacity: 0; transform: translateY(75px); }
-    to { opacity: 1; } 
-}
-
-@keyframes fade-in-opacity {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fade-scale {
-    from { opacity: .25; scale: .75; }
-    to { opacity: 1; scale: 1; }
-}
-
-
-/*=============
-   MEDIA QUERY
-  =============*/
-
-/* Mobile devices */
-@media (width <= 738px) {
-    .sections {
-        padding-inline: 1rem;
-
-        grid-template-areas: "a" "b" "c";
-        gap: 1rem;
-    }
-}
-
-/* Buttons and Links responsivity on mobile devices */
-@media (hover: none) { 
-    .contact a:hover {
-        color: #e5e5e5;
-    }
-    .one-project:hover {
-        scale: 1;
-        box-shadow: 0 0 1rem -.3rem #000;
-    }   
-    .project-link:hover {
-        color: var(--blue-clr);
-    }
 }

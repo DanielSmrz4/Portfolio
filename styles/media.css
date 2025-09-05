@@ -1,3 +1,4 @@
+/* Tablet */
 @media (width < 55em) {
     .sections {
         grid-template-columns: 1fr;
@@ -6,4 +7,28 @@
     .avatar {
         margin-block-start: 2rem;
     } 
+}
+
+/* Mobile */
+@media (width <= 738px) {
+    .sections {
+        padding-inline: 1rem;
+
+        grid-template-areas: "a" "b" "c";
+        gap: 1rem;
+    }
+}
+
+/* Buttons and Links responsivity on mobile devices */
+@media (hover: none) { 
+    .contact a:hover {
+        color: #e5e5e5;
+    }
+    .one-project:hover {
+        /* scale: 1; */
+        box-shadow: 0 0 1rem -.3rem #000;
+    }   
+    .project-link:hover {
+        color: var(--blue-clr);
+    }
 }

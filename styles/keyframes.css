@@ -10,7 +10,6 @@
     }  
 }
 
-
 @keyframes border-motion-2 {
     25% {
         border-radius: 50% 45% 45% 40%;
@@ -21,4 +20,20 @@
     75% {
         border-radius: 35% 30% 45% 50%;
     }  
+}
+
+
+@keyframes fade-in-bottom {
+    from { opacity: 0; transform: translateY(75px); }
+    to { opacity: 1; } 
+}
+
+@keyframes fade-in-opacity {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-scale {
+    from { opacity: .25; scale: .75; }
+    to { opacity: 1; scale: 1; }
 }
