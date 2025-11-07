@@ -149,6 +149,15 @@ main {
     font-size: 1.25rem;
 }
 
+.link-work {
+    color: var(--blue-clr);
+    text-decoration: none;
+}
+
+.link-work:hover {
+    color: var(--orange-clr);
+}
+
 /* Projects */
 .projects {
     position: relative;   
